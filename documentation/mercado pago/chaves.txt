@@ -1,0 +1,13 @@
+As credenciais nao devem ser armazenadas neste diretorio.
+
+Configure-as como variaveis de ambiente no servidor de producao:
+
+MP_PUBLIC_KEY=...
+MP_ACCESS_TOKEN=...
+CHECKOUT_SIGNING_KEY=...
+
+A Public Key e enviada ao SDK do Mercado Pago no navegador e, por definicao,
+e publica. O Access Token e a CHECKOUT_SIGNING_KEY nunca devem ser enviados
+ao frontend nem incluidos em arquivos publicados.
+
+Client ID e Client Secret nao sao usados por este Checkout Transparente.
