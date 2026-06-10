@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="5S Soluções Criativas, narrativa em quadrinhos ilustrada por Ricardo de Almeida.">
+    <title>5S Soluções Criativas — ricardodraw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="projeto.css">
+</head>
+
+<body class="project-page">
+    <header class="project-header">
+        <div class="project-container project-header-content">
+            <a href="index.html" class="project-logo" aria-label="ricardodraw — página inicial">
+                <img src="assets/logo/Ricardodraw_ICONE.png" alt="">
+                <span>ricardo<strong>draw</strong></span>
+            </a>
+            <nav class="project-nav" aria-label="Navegação do projeto">
+                <ul>
+                    <li><a href="#projeto">projeto</a></li>
+                    <li><a href="#galeria">galeria</a></li>
+                    <li>
+                        <a href="checkout.html" class="cart-icon-link" aria-label="Ir para o checkout">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 3h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20.5 7H6"></path>
+                                <circle cx="10" cy="20" r="1"></circle>
+                                <circle cx="18" cy="20" r="1"></circle>
+                            </svg>
+                            <span class="cart-count" aria-hidden="true">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="project-hero" id="projeto">
+            <div class="project-container project-hero-grid">
+                <div class="reveal">
+                    <p class="project-eyebrow">quadrinhos · educação</p>
+                    <h1>5S Soluções Criativas</h1>
+                    <p class="project-description">
+                        Uma narrativa em quadrinhos que transforma os conceitos da metodologia 5S em aprendizado
+                        visual, acessível e aplicável a todas as idades.
+                    </p>
+                    <div class="project-meta">
+                        <span>quadrinhos</span>
+                        <span>educação</span>
+                    </div>
+                </div>
+                <div class="project-hero-media reveal">
+                    <span class="project-number" aria-hidden="true">02</span>
+                    <img src="assets/projetos/5S solucoes/Solucoes_DANDO-UM-JEITO-1.png"
+                        alt="Capa ilustrada Dando um jeito na bagunça">
+                </div>
+            </div>
+        </section>
+
+        <section class="project-gallery" id="galeria" aria-labelledby="gallery-title">
+            <div class="project-container">
+                <div class="project-gallery-heading reveal">
+                    <div>
+                        <p class="project-section-label">galeria</p>
+                        <h2 id="gallery-title">por dentro do projeto</h2>
+                    </div>
+                    <span class="project-gallery-count">03 imagens</span>
+                </div>
+                <div class="project-bento">
+                    <button class="project-bento-card is-large reveal" type="button">
+                        <img src="assets/projetos/5S solucoes/Solucoes_DANDO-UM-JEITO-1.png"
+                            alt="Capa do projeto Dando um jeito na bagunça" loading="lazy">
+                    </button>
+                    <button class="project-bento-card is-tall reveal" type="button">
+                        <img src="assets/projetos/5S solucoes/Solucoes_DANDO-UM-JEITO-2.png"
+                            alt="Páginas internas em quadrinhos sobre autodisciplina" loading="lazy">
+                    </button>
+                    <button class="project-bento-card is-wide reveal" type="button">
+                        <img src="assets/projetos/5S solucoes/Solucoes_DANDO-UM-JEITO-3.png"
+                            alt="Páginas internas ilustradas do projeto 5S" loading="lazy">
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="project-footer">
+        <div class="project-container project-footer-content">
+            <p>&copy; <span id="currentYear">2026</span> <strong>ricardo<span>draw</span></strong>.</p>
+            <a href="index.html#projetos">voltar aos projetos</a>
+        </div>
+    </footer>
+
+    <div class="project-lightbox" id="projectLightbox" role="dialog" aria-modal="true" aria-label="Visualização da imagem">
+        <button class="project-lightbox-close" id="projectLightboxClose" type="button" aria-label="Fechar">×</button>
+        <img id="projectLightboxImage" alt="">
+    </div>
+
+    <script src="projeto.js"></script>
+    <script src="checkout-link.js"></script>
+</body>
+
+</html>

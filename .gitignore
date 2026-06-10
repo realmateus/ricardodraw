@@ -1,0 +1,6 @@
+.env
+server/.env
+**/__pycache__/
+*.py[cod]
+documentation/mercado pago/chaves.txt
+documentation/*.json

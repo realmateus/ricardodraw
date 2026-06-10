@@ -1,0 +1,1046 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --bg-color: #ffffff;
+  --text-main: #1a1a1a;
+  --text-dim: #6b6b6b;
+  --accent-color: #000000;
+  --border-color: #ebebeb;
+  --hover-bg: #fafafa;
+  --spacing: 3rem;
+  --container-width: 900px;
+
+  /* Animation timings */
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Smooth scroll for entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* =========================================
+   Enhanced Scroll Reveal Animations
+   ========================================= */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  filter: blur(4px);
+  transition:
+    opacity 0.8s var(--ease-out-expo),
+    transform 0.8s var(--ease-out-expo),
+    filter 0.6s var(--ease-out-expo);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Staggered reveal for children */
+.reveal-stagger>* {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s var(--ease-out-expo),
+    transform 0.6s var(--ease-out-expo);
+}
+
+.reveal-stagger.active>*:nth-child(1) {
+  transition-delay: 0.1s;
+}
+
+.reveal-stagger.active>*:nth-child(2) {
+  transition-delay: 0.2s;
+}
+
+.reveal-stagger.active>*:nth-child(3) {
+  transition-delay: 0.3s;
+}
+
+.reveal-stagger.active>*:nth-child(4) {
+  transition-delay: 0.4s;
+}
+
+.reveal-stagger.active>*:nth-child(5) {
+  transition-delay: 0.5s;
+}
+
+.reveal-stagger.active>* {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =========================================
+   Links and Base Elements
+   ========================================= */
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+a:hover {
+  opacity: 0.7;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* =========================================
+   Header with Glass Effect
+   ========================================= */
+
+header {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid transparent;
+  position: sticky;
+  top: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  z-index: 100;
+  transition:
+    border-color 0.3s var(--ease-smooth),
+    box-shadow 0.3s var(--ease-smooth),
+    padding 0.3s var(--ease-smooth);
+}
+
+header.scrolled {
+  border-bottom-color: var(--border-color);
+  box-shadow: 0 1px 30px rgba(0, 0, 0, 0.04);
+  padding: 1rem 0;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.3s var(--ease-out-expo);
+}
+
+.logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.03em;
+}
+
+.logo-text-light {
+  font-weight: 300;
+}
+
+.logo-icon {
+  height: 38px;
+  width: auto;
+  display: block;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.logo:hover .logo-icon {
+  transform: rotate(-5deg) scale(1.05);
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+nav ul li a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s var(--ease-smooth);
+}
+
+nav ul li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background-color: var(--text-main);
+  transition: width 0.4s var(--ease-out-expo);
+}
+
+nav ul li a:hover {
+  color: var(--text-main);
+  opacity: 1;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   Sections
+   ========================================= */
+
+section {
+  padding: 3rem 0;
+}
+
+/* =========================================
+   Hero Section
+   ========================================= */
+
+.hero {
+  text-align: center;
+  padding: 7rem 0 5rem;
+  position: relative;
+}
+
+.slogan {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.04em;
+  color: #000;
+
+  /* Gradient Text Animation */
+  background: linear-gradient(135deg, #000 0%, #333 50%, #000 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: gradientShift 8s ease infinite;
+}
+
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-dim);
+  margin-bottom: 2.5rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* =========================================
+   CTA Button with Premium Animation
+   ========================================= */
+
+.cta-button {
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  padding: 0.875rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.4s var(--ease-smooth);
+}
+
+.cta-button:hover {
+  background-color: #1a1a1a;
+  transform: translateY(-3px);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+  opacity: 1;
+}
+
+.cta-button:hover::before {
+  opacity: 1;
+}
+
+.cta-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================================
+   Project Items
+   ========================================= */
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+  border-bottom: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.project-item:hover {
+  background-color: var(--hover-bg);
+  padding-left: 1.5rem;
+  border-color: transparent;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+}
+
+.project-name {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.project-meta {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+/* =========================================
+   About Section
+   ========================================= */
+
+.about-grid {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.about-image {
+  flex: 1;
+}
+
+/* Image Hover Effect with Smooth Transition */
+.img-container {
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.img-container:hover {
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.about-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Old image (Reference for aspect ratio) */
+.about-img.reference {
+  filter: grayscale(100%);
+  position: relative;
+  z-index: 1;
+}
+
+/* Current image (Overlay, visible by default) */
+.about-img.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 1.5s var(--ease-out-expo);
+}
+
+/* Hover: Hide overlay to reveal reference */
+.img-container:hover .about-img.overlay {
+  opacity: 0;
+  transition: opacity 0.5s var(--ease-smooth);
+}
+
+.about-text {
+  flex: 1.5;
+}
+
+.about-text h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.3;
+}
+
+.about-text p {
+  margin-bottom: 1rem;
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.about-signature {
+  width: 140px;
+  height: auto;
+  margin-top: 2rem;
+  display: block;
+  opacity: 0.15;
+  filter: grayscale(100%);
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.about-signature:hover {
+  opacity: 0.4;
+  transform: scale(1.05);
+}
+
+/* =========================================
+   Testimonials Carousel
+   ========================================= */
+
+.carousel-container {
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(135deg, var(--hover-bg) 0%, #f5f5f5 100%);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.testimonial-card {
+  min-width: 100%;
+  text-align: center;
+  padding: 1rem 2rem;
+}
+
+.testimonial-text {
+  font-size: 1.35rem;
+  font-style: italic;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+.testimonial-author {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text-dim);
+}
+
+/* Navigation dots */
+.carousel-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #d0d0d0;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.dot:hover {
+  background-color: #999;
+  transform: scale(1.3);
+}
+
+.dot.active {
+  background-color: #333;
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* =========================================
+   Footer
+   ========================================= */
+
+footer {
+  text-align: center;
+  padding: 3rem 0;
+  border-top: 1px solid var(--border-color);
+  margin-top: 2rem;
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  transition: all 0.3s var(--ease-smooth);
+}
+
+footer:hover {
+  color: var(--text-main);
+}
+
+/* =========================================
+   Section Title
+   ========================================= */
+
+.section-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-dim);
+  margin-bottom: 1.75rem;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: var(--text-dim);
+  transition: width 0.4s var(--ease-out-expo);
+}
+
+.section-title:hover::after {
+  width: 100%;
+}
+
+/* =========================================
+   Partners Logos Carousel
+   ========================================= */
+
+#parceiros {
+  padding: 5rem 0;
+}
+
+.partners-title {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.logos-carousel {
+  position: relative;
+  overflow: hidden;
+  padding: 2.5rem 0;
+}
+
+/* Gradient overlays - smoother */
+.logos-carousel::before,
+.logos-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logos-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-color) 0%, transparent 100%);
+}
+
+.logos-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-color) 0%, transparent 100%);
+}
+
+.logos-track {
+  display: flex;
+  gap: 5rem;
+  animation: scroll 45s linear infinite;
+  width: fit-content;
+}
+
+.logos-track:hover {
+  animation-play-state: paused;
+}
+
+.logo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 55px;
+  min-width: 110px;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+
+.logo-item:hover {
+  transform: scale(1.1);
+}
+
+.logo-item img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.5);
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.logo-item img:hover {
+  filter: grayscale(0%) opacity(1);
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================
+   Hover effect for "ilustração" word
+   ========================================= */
+
+.hover-ilustracao {
+  position: relative;
+  display: inline-block;
+  cursor: default;
+  white-space: nowrap;
+  transition: all 0.3s var(--ease-out-expo);
+}
+
+/* Original text stays in flow but hides on hover */
+.hover-ilustracao:hover {
+  color: transparent;
+}
+
+/* Pseudo-element creates the "sticker" on top */
+.hover-ilustracao:hover::after {
+  content: 'ilustração.';
+  position: absolute;
+  left: 60%;
+  top: 52%;
+  transform: translate(-50%, -50%) rotate(-3deg) scale(1.0);
+  font-family: "Borel", cursive;
+  font-size: 1.1em;
+  color: #000;
+  z-index: 100;
+
+  /* Simulate thick white border stroke */
+  -webkit-text-stroke: 4px #fff;
+  paint-order: stroke fill;
+
+  /* Softer drop shadow */
+  filter: drop-shadow(3px 6px 12px rgba(0, 0, 0, 0.1));
+
+  pointer-events: none;
+  animation: stickerPop 0.4s var(--ease-out-expo);
+}
+
+@keyframes stickerPop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-8deg) scale(0.8);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-3deg) scale(1.0);
+  }
+}
+
+/* =========================================
+   Project Carousel (Swiper)
+   ========================================= */
+
+.project-carousel {
+  padding-top: 50px;
+  padding-bottom: 70px;
+  width: 100%;
+  position: relative;
+}
+
+/* Gradient Fade - smoother */
+.project-carousel::before,
+.project-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 150px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.project-carousel::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-color) 0%, transparent 100%);
+}
+
+.project-carousel::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-color) 0%, transparent 100%);
+}
+
+.swiper-slide.project-card {
+  background: #fff;
+  width: 320px;
+  height: 480px;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  transition: all 0.5s var(--ease-out-expo);
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+/* Active Slide Styling */
+.swiper-slide-active.project-card {
+  border-color: #e0e0e0;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.02);
+  opacity: 1;
+  transform: scale(1);
+  z-index: 10;
+}
+
+/* Image Container */
+.project-image-container {
+  height: 70%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.project-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease-out-expo);
+}
+
+/* Zoom effect on active */
+.swiper-slide-active .project-image-container img {
+  transform: scale(1.05);
+}
+
+/* Info Section */
+.project-info {
+  padding: 1.5rem 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  background: #fff;
+}
+
+.project-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.project-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+
+  /* Control visibility */
+  display: block;
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s var(--ease-out-expo) 0.1s;
+
+  /* Limit lines */
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Show description only on active slide */
+.swiper-slide-active .project-desc {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pagination Customization */
+.swiper-pagination-bullet {
+  background: #e0e0e0;
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  transition: all 0.4s var(--ease-out-expo);
+}
+
+.swiper-pagination-bullet-active {
+  background: #333;
+  width: 28px;
+  border-radius: 4px;
+}
+
+/* Navigation Arrows */
+.project-carousel .swiper-button-prev,
+.project-carousel .swiper-button-next {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  color: var(--text-main);
+  z-index: 30;
+  transition: all 0.4s var(--ease-out-expo);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+.project-carousel .swiper-button-prev:hover,
+.project-carousel .swiper-button-next:hover {
+  background: var(--text-main);
+  color: #fff;
+  border-color: var(--text-main);
+  transform: scale(1.08);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.project-carousel .swiper-button-prev:active,
+.project-carousel .swiper-button-next:active {
+  transform: scale(0.96);
+}
+
+.project-carousel .swiper-button-prev::after,
+.project-carousel .swiper-button-next::after {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
+
+/* Clickable Project Cards */
+a.project-card.project-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+a.project-card.project-link:hover {
+  opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+  .about-grid {
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+
+  .slogan {
+    font-size: 2.25rem;
+  }
+
+  .hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .partners-title {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .logos-carousel::before,
+  .logos-carousel::after {
+    width: 100px;
+  }
+
+  .logos-track {
+    gap: 3.5rem;
+  }
+
+  .logo-item {
+    min-width: 90px;
+    height: 45px;
+  }
+
+  .swiper-slide.project-card {
+    width: 280px;
+    height: 440px;
+  }
+
+  .project-info {
+    padding: 1.25rem 1rem;
+  }
+
+  .project-title {
+    font-size: 1.05rem;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+  }
+
+  nav ul {
+    gap: 1.25rem;
+  }
+
+  nav ul li a {
+    font-size: 0.8rem;
+  }
+
+  .about-text h2 {
+    font-size: 1.5rem;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+  }
+
+  .testimonial-text {
+    font-size: 1.15rem;
+  }
+}
+
+/* =========================================
+   Loading Animation for Page Entry
+   ========================================= */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero.active .slogan {
+  animation: fadeInUp 0.8s var(--ease-out-expo) 0.1s both;
+}
+
+.hero.active p {
+  animation: fadeInUp 0.8s var(--ease-out-expo) 0.2s both;
+}
+
+.hero.active .cta-button {
+  animation: fadeInUp 0.8s var(--ease-out-expo) 0.3s both;
+}
+
+/* =========================================
+   Smooth Selection Color
+   ========================================= */
+
+::selection {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+/* =========================================
+   Focus States for Accessibility
+   ========================================= */
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--text-main);
+  outline-offset: 3px;
+}
+
+/* =========================================
+   Custom Scrollbar (Subtle)
+   ========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+}

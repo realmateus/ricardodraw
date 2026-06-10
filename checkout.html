@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout | ricardodraw</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="checkout.css?v=4">
+</head>
+
+<body class="checkout-page">
+    <header class="checkout-header">
+        <div class="checkout-container checkout-header-content">
+            <a href="index.html" class="checkout-logo" aria-label="ricardodraw — página inicial">
+                <img src="assets/logo/Ricardodraw_ICONE.png" alt="">
+                <span>ricardo<strong>draw</strong></span>
+            </a>
+            <span class="checkout-status">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="4" y="10" width="16" height="11"></rect>
+                    <path d="M8 10V7a4 4 0 0 1 8 0v3"></path>
+                </svg>
+                checkout seguro
+            </span>
+        </div>
+    </header>
+
+    <main class="checkout-main">
+        <div class="checkout-container checkout-intro">
+            <h1>checkout</h1>
+            <a href="bichinho-ansiedade.html#comprar" class="back-link">
+                <span aria-hidden="true">←</span>
+                voltar ao produto
+            </a>
+        </div>
+
+        <div class="checkout-container checkout-wrapper">
+            <div class="checkout-left">
+                <section class="personal-section">
+                    <div class="section-heading">
+                        <span class="step-number">01</span>
+                        <h2 class="section-title">dados pessoais</h2>
+                    </div>
+
+                    <div class="customer-form">
+                        <div class="form-group">
+                            <label for="customer-email">e-mail</label>
+                            <input type="email" id="customer-email" class="form-input" autocomplete="email"
+                                placeholder="seu@email.com" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half">
+                                <label for="customer-firstname">nome</label>
+                                <input type="text" id="customer-firstname" class="form-input" autocomplete="given-name"
+                                    placeholder="Nome" required>
+                            </div>
+                            <div class="form-group half">
+                                <label for="customer-lastname">sobrenome</label>
+                                <input type="text" id="customer-lastname" class="form-input" autocomplete="family-name"
+                                    placeholder="Sobrenome" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-cpf">cpf</label>
+                            <input type="text" id="customer-cpf" class="form-input" autocomplete="off"
+                                placeholder="000.000.000-00" maxlength="14" inputmode="numeric" required>
+                        </div>
+                        <p id="personalError" class="form-error hidden">Preencha corretamente seus dados pessoais.</p>
+                    </div>
+                </section>
+
+                <section class="address-section">
+                    <div class="section-heading">
+                        <span class="step-number">02</span>
+                        <h2 class="section-title">endereço</h2>
+                    </div>
+
+                    <div class="address-form">
+                        <div class="address-row">
+                            <div class="address-field cep-field">
+                                <label for="addr-cep">cep</label>
+                                <input type="text" id="addr-cep" class="form-input" placeholder="00000-000"
+                                    maxlength="9" readonly>
+                            </div>
+                        </div>
+                        <div class="address-row">
+                            <div class="address-field full">
+                                <label for="addr-street">rua</label>
+                                <input type="text" id="addr-street" class="form-input" placeholder="Rua, Avenida..."
+                                    autocomplete="address-line1" required>
+                            </div>
+                        </div>
+                        <div class="address-row">
+                            <div class="address-field small">
+                                <label for="addr-number">número</label>
+                                <input type="text" id="addr-number" class="form-input" placeholder="Nº" required>
+                            </div>
+                            <div class="address-field flex">
+                                <label for="addr-complement">complemento</label>
+                                <input type="text" id="addr-complement" class="form-input" placeholder="Apto, bloco..."
+                                    autocomplete="address-line2">
+                            </div>
+                        </div>
+                        <div class="address-row">
+                            <div class="address-field flex">
+                                <label for="addr-neighborhood">bairro</label>
+                                <input type="text" id="addr-neighborhood" class="form-input" placeholder="Bairro"
+                                    required>
+                            </div>
+                        </div>
+                        <div class="address-row">
+                            <div class="address-field flex">
+                                <label for="addr-city">cidade</label>
+                                <input type="text" id="addr-city" class="form-input" placeholder="Cidade"
+                                    autocomplete="address-level2" required>
+                            </div>
+                            <div class="address-field small">
+                                <label for="addr-state">estado</label>
+                                <input type="text" id="addr-state" class="form-input" placeholder="UF" maxlength="2"
+                                    autocomplete="address-level1" required>
+                            </div>
+                        </div>
+                        <p id="addressError" class="form-error hidden">Preencha todos os campos obrigatórios do endereço.</p>
+                    </div>
+                </section>
+
+                <section class="payment-section">
+                    <div class="payment-heading">
+                        <span class="step-number step-number-light">03</span>
+                        <h2 class="payment-title">pagamento</h2>
+                    </div>
+
+                    <div class="payment-tabs" role="tablist" aria-label="Forma de pagamento">
+                        <button type="button" class="payment-tab active" data-method="card" role="tab"
+                            aria-selected="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" aria-hidden="true">
+                                <rect x="1" y="4" width="22" height="16" rx="2"></rect>
+                                <line x1="1" y1="10" x2="23" y2="10"></line>
+                            </svg>
+                            cartão
+                        </button>
+                        <button type="button" class="payment-tab" data-method="pix" role="tab" aria-selected="false">
+                            <img src="assets/pix.svg" class="payment-tab-icon payment-tab-icon-pix" alt=""
+                                aria-hidden="true">
+                            pix
+                        </button>
+                    </div>
+
+                    <div id="cardPayment" class="payment-panel active">
+                        <form id="form-checkout" class="checkout-form">
+                            <label class="form-label">dados do cartão</label>
+                            <div class="form-group">
+                                <label for="form-checkout__cardholderName" class="sr-only">Nome no cartão</label>
+                                <input type="text" id="form-checkout__cardholderName" class="form-input"
+                                    placeholder="Nome como está no cartão" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-checkout__cardNumber" class="sr-only">Número do cartão</label>
+                                <div id="form-checkout__cardNumber" class="mp-iframe-container"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-checkout__expirationDate" class="sr-only">Validade</label>
+                                <div id="form-checkout__expirationDate" class="mp-iframe-container"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="form-checkout__securityCode" class="sr-only">CVV</label>
+                                <div class="cvv-field">
+                                    <div id="form-checkout__securityCode" class="mp-iframe-container"></div>
+                                    <img src="assets/cvv.svg" class="cvv-icon" alt="" aria-hidden="true">
+                                </div>
+                            </div>
+                            <select id="form-checkout__installments" class="payment-data-bridge" tabindex="-1"
+                                aria-hidden="true"></select>
+                            <select id="form-checkout__issuer" class="payment-data-bridge" tabindex="-1"
+                                aria-hidden="true"></select>
+                            <select id="form-checkout__identificationType" class="payment-data-bridge" tabindex="-1"
+                                aria-hidden="true"></select>
+                            <input type="text" id="form-checkout__identificationNumber" class="payment-data-bridge"
+                                tabindex="-1" aria-hidden="true">
+                            <button type="submit" id="cardPayBtn" class="payment-submit-bridge" tabindex="-1"
+                                aria-hidden="true">pagar com cartão</button>
+                        </form>
+                    </div>
+
+                    <div id="pixPayment" class="payment-panel">
+                        <form id="form-pix" class="checkout-form">
+                            <div class="pix-explanation">
+                                <strong>pix</strong>
+                                <p>O código para pagamento será gerado após a confirmação do pedido.</p>
+                            </div>
+                            <button type="submit" id="pixPayBtn" class="payment-submit-bridge" tabindex="-1"
+                                aria-hidden="true">pagar com pix</button>
+                        </form>
+
+                        <div id="pixResult" class="pix-result hidden">
+                            <h3>escaneie o qr code para pagar</h3>
+                            <div id="pixQrCode" class="pix-qr"></div>
+                            <div class="pix-copy-group">
+                                <label for="pixCopyPaste">ou copie o código pix:</label>
+                                <div class="pix-copy-row">
+                                    <input type="text" id="pixCopyPaste" class="form-input" readonly>
+                                    <button type="button" id="pixCopyBtn" class="copy-btn">copiar</button>
+                                </div>
+                            </div>
+                            <p class="pix-expiry">o código expira em 30 minutos.</p>
+                        </div>
+                    </div>
+
+                    <p class="security-note">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" aria-hidden="true">
+                            <rect x="3" y="11" width="18" height="10"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                        pagamento seguro e criptografado via Mercado Pago
+                    </p>
+                </section>
+            </div>
+
+            <aside class="checkout-right" aria-labelledby="summary-title">
+                <div class="summary-heading">
+                    <h2 id="summary-title" class="section-title">informações do produto</h2>
+                </div>
+
+                <div id="orderItems" class="order-items"></div>
+
+                <div id="selectedShippingSummary" class="selected-shipping-summary">
+                    <label class="summary-row-label" for="shippingSelect">frete</label>
+                    <div id="shippingDropdown" class="shipping-dropdown">
+                        <button id="shippingSelect" class="shipping-select" type="button" aria-haspopup="listbox"
+                            aria-expanded="false" aria-controls="shippingOptions">
+                            <span>
+                                <strong id="selectedShippingName">—</strong>
+                                <small id="selectedShippingDelivery"></small>
+                            </span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                                aria-hidden="true">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </button>
+                        <div id="shippingOptions" class="shipping-options hidden" role="listbox"
+                            aria-label="Opções de frete"></div>
+                    </div>
+                </div>
+
+                <div class="checkout-totals">
+                    <div class="total-row">
+                        <span>subtotal</span>
+                        <span id="checkoutSubtotal" class="currency-value">R$ 0,00</span>
+                    </div>
+                    <div class="total-row">
+                        <span>frete</span>
+                        <span id="checkoutShipping" class="currency-value">R$ 0,00</span>
+                    </div>
+                    <div class="total-row total-final">
+                        <span>total</span>
+                        <span id="checkoutTotal" class="currency-value">R$ 0,00</span>
+                    </div>
+                </div>
+
+                <p id="checkoutSummaryError" class="summary-error hidden" role="alert"></p>
+                <button type="button" id="finalizePurchaseBtn" class="pay-btn">
+                    <span id="finalizePurchaseBtnText">finalizar compra</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" aria-hidden="true">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+
+                <p class="guarantee-note">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" aria-hidden="true">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        <polyline points="9 12 11 14 15 9"></polyline>
+                    </svg>
+                    7 dias de garantia. Sem burocracias.
+                </p>
+            </aside>
+        </div>
+    </main>
+
+    <div id="paymentOverlay" class="payment-overlay hidden">
+        <div class="payment-overlay-content">
+            <div id="overlayIcon" class="overlay-icon"></div>
+            <h2 id="overlayTitle"></h2>
+            <p id="overlayMessage"></p>
+            <a href="index.html" class="overlay-btn">voltar à loja</a>
+        </div>
+    </div>
+
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="shipping-filter.js"></script>
+    <script src="checkout.js?v=6"></script>
+</body>
+
+</html>

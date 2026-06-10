@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Bichinho da Ansiedade, livro de colorir terapêutico de Adriana Belli e Ricardo de Almeida.">
+    <title>Bichinho da Ansiedade — ricardodraw</title>
+
+    <script>
+        document.documentElement.classList.add("js");
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bichinho-ansiedade.css">
+</head>
+
+<body class="anxiety-page">
+    <header class="site-header">
+        <div class="container header-content">
+            <a href="index.html" class="logo" aria-label="ricardodraw — página inicial">
+                <img src="assets/logo/Ricardodraw_ICONE.png" alt="" class="logo-icon">
+                <span class="logo-text">ricardo<span class="logo-text-light">draw</span></span>
+            </a>
+
+            <nav aria-label="Navegação da página">
+                <ul>
+                    <li><a href="#o-livro" data-section-link="o-livro">o livro</a></li>
+                    <li><a href="#por-dentro" data-section-link="por-dentro">por dentro</a></li>
+                    <li class="cart-icon-li">
+                        <a href="checkout.html" class="cart-icon-link" aria-label="Ir para o checkout">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 3h2l2.2 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20.5 7H6"></path>
+                                <circle cx="10" cy="20" r="1"></circle>
+                                <circle cx="18" cy="20" r="1"></circle>
+                            </svg>
+                            <span class="cart-count" aria-hidden="true">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="book-hero" id="inicio" aria-labelledby="book-title">
+            <div class="hero-bg-wrapper">
+                <img src="assets/projetos/bichinho_ansiedade/Bichinho-da-Ansiedade-COLORIR_01.png"
+                    alt="Três exemplares do livro Bichinho da Ansiedade" class="hero-bg-img">
+            </div>
+
+            <div class="container book-hero-content">
+                <div class="hero-purchase-box reveal">
+                    <p class="eyebrow">livro de colorir · 1ª edição · 2025</p>
+                    <h1 id="book-title">
+                        <span>Bichinho da</span>
+                        <mark>Ansiedade</mark>
+                    </h1>
+                    <p class="book-hero-subtitle">Um livro de colorir terapêutico para crianças.</p>
+                    
+                    <div class="product-price" aria-label="Preço: 29 reais e 90 centavos">
+                        <span>R$</span>
+                        <strong>29,90</strong>
+                    </div>
+                    <p class="payment-note">Pagamento seguro via Mercado Pago.</p>
+
+                    <div class="shipping-calculator" id="calcular-frete">
+                        <h3>calcular frete</h3>
+                        <div class="shipping-input-group">
+                            <label class="sr-only" for="cepInput">CEP</label>
+                            <input type="text" id="cepInput" class="cep-input" placeholder="00000-000" maxlength="9"
+                                inputmode="numeric" autocomplete="postal-code">
+                            <button id="calcShippingBtn" class="shipping-button" type="button">calcular</button>
+                        </div>
+                        <a href="https://buscacepinter.correios.com.br/app/endereco/index.php" target="_blank"
+                            rel="noopener noreferrer" class="cep-help-link">não sei meu CEP</a>
+
+                        <div id="shippingLoading" class="shipping-loading hidden" role="status">
+                            <span class="spinner" aria-hidden="true"></span>
+                            calculando frete
+                        </div>
+                        <p id="shippingError" class="shipping-error hidden" role="alert"></p>
+                        <div id="shippingResults" class="shipping-results hidden" aria-live="polite"></div>
+                    </div>
+
+                    <div class="product-actions">
+                        <button class="brutal-button brutal-button-dark direct-checkout-btn" type="button"
+                            data-id="bichinho-001" data-name="Bichinho da Ansiedade" data-price="29.90"
+                            data-image="assets/projetos/bichinho_ansiedade/Bichinho-da-Ansiedade-COLORIR_01.png"
+                            disabled>
+                            <span class="direct-checkout-label">comprar agora</span>
+                            <span aria-hidden="true">→</span>
+                        </button>
+                        <p class="shipping-required-note">escolha PAC ou SEDEX para continuar.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-facts" aria-label="Informações resumidas do livro">
+                <div><span>autores</span><strong>Adriana Belli e Ricardo de Almeida</strong></div>
+                <div><span>páginas</span><strong>25 páginas</strong></div>
+                <div><span>publicação</span><strong>Contagem, MG</strong></div>
+            </div>
+        </section>
+
+        <section class="book-story" id="o-livro" aria-labelledby="story-title">
+            <div class="container story-grid">
+                <div class="story-heading reveal">
+                    <p class="section-title">o livro</p>
+                    <h2 id="story-title">Um livro de colorir terapêutico para crianças.</h2>
+                </div>
+
+                <div class="story-copy reveal" data-reveal-delay="100">
+                    <p>
+                        Desenvolvido em parceria com a terapeuta <strong>Adriana Belli</strong>, este livro de colorir
+                        vai além do entretenimento. Através de ilustrações lúdicas e cuidadosamente elaboradas, o projeto
+                        propõe brincadeiras e atividades que desconectam as crianças das telas e ajudam a combater a
+                        ansiedade de forma leve e divertida.
+                    </p>
+                    <p>
+                        Com desenhos que mostram crianças diferentes em atividades saudáveis, este livro também valoriza
+                        a temática da inclusão. É uma alternativa relaxante, que estimula a coordenação motora, a
+                        criatividade e a atenção de crianças e adolescentes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="container principles-grid">
+                <article class="principle reveal" tabindex="0">
+                    <span aria-hidden="true">01</span>
+                    <img class="principle-doodle" src="assets/noun-doodle-197636.svg" alt="" aria-hidden="true">
+                    <h3>terapêutico</h3>
+                    <p>Desenvolvido em parceria com uma terapeuta especializada.</p>
+                </article>
+                <article class="principle reveal" data-reveal-delay="80" tabindex="0">
+                    <span aria-hidden="true">02</span>
+                    <img class="principle-doodle" src="assets/noun-doodle-197599.svg" alt="" aria-hidden="true">
+                    <h3>inclusivo</h3>
+                    <p>Ilustrações que representam crianças de diversas etnias e contextos.</p>
+                </article>
+                <article class="principle reveal" data-reveal-delay="160" tabindex="0">
+                    <span aria-hidden="true">03</span>
+                    <img class="principle-doodle" src="assets/noun-doodle-197607.svg" alt="" aria-hidden="true">
+                    <h3>desconexão digital</h3>
+                    <p>Atividades pensadas para afastar as crianças das telas de forma divertida.</p>
+                </article>
+            </div>
+
+            <div class="container story-actions reveal" data-reveal-delay="240">
+                <a href="#calcular-frete" class="brutal-button">
+                    comprar o livro
+                </a>
+            </div>
+        </section>
+
+        <section class="book-gallery" id="por-dentro" aria-labelledby="gallery-title">
+            <div class="container gallery-heading reveal">
+                <p class="section-title">por dentro</p>
+                <h2 id="gallery-title">Capa, contracapa e páginas internas.</h2>
+            </div>
+
+            <div class="container gallery-grid">
+                <button class="gallery-item gallery-item-wide gallery-trigger reveal" type="button"
+                    data-src="assets/projetos/bichinho_ansiedade/Bichinho-da-Ansiedade-COLORIR_02.png"
+                    data-alt="Capa e contracapa abertas do livro Bichinho da Ansiedade">
+                    <img src="assets/projetos/bichinho_ansiedade/Bichinho-da-Ansiedade-COLORIR_02.png"
+                        alt="Capa e contracapa abertas do livro Bichinho da Ansiedade" loading="lazy">
+                    <span class="art-index" aria-hidden="true">02</span>
+                </button>
+
+                <button class="gallery-item gallery-trigger reveal" type="button" data-reveal-delay="80"
+                    data-src="assets/projetos/bichinho_ansiedade/Bichinho-da-Ansiedade-COLORIR_03.png"
+                    data-alt="Página interna para colorir do livro Bichinho da Ansiedade">
+                    <img src="assets/projetos/bichinho_ansiedade/Bichinho-da-Ansiedade-COLORIR_03.png"
+                        alt="Página interna para colorir do livro Bichinho da Ansiedade" loading="lazy">
+                    <span class="art-index" aria-hidden="true">03</span>
+                </button>
+
+                <button class="gallery-item gallery-trigger reveal" type="button" data-reveal-delay="120"
+                    data-src="assets/projetos/bichinho_ansiedade/Bichinho-da-Ansiedade-COLORIR_04.png"
+                    data-alt="Folha de rosto do livro Bichinho da Ansiedade">
+                    <img src="assets/projetos/bichinho_ansiedade/Bichinho-da-Ansiedade-COLORIR_04.png"
+                        alt="Folha de rosto do livro Bichinho da Ansiedade" loading="lazy">
+                    <span class="art-index" aria-hidden="true">04</span>
+                </button>
+            </div>
+
+            <div class="container gallery-actions reveal" data-reveal-delay="160" style="display: flex; justify-content: center; margin-top: 3.5rem;">
+                <a href="#calcular-frete" class="brutal-button">
+                    comprar o livro
+                </a>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <p>&copy; <span id="currentYear">2026</span> <strong>ricardo<span class="logo-text-light">draw</span></strong>.</p>
+            <a href="#inicio">voltar ao topo <span aria-hidden="true">↑</span></a>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true" aria-label="Galeria do livro">
+        <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Fechar">×</button>
+        <button class="lightbox-nav lightbox-prev" id="lightboxPrev" type="button" aria-label="Imagem anterior">←</button>
+        <img id="lightboxImage" class="lightbox-image" alt="">
+        <button class="lightbox-nav lightbox-next" id="lightboxNext" type="button" aria-label="Próxima imagem">→</button>
+    </div>
+
+    <script src="shipping-filter.js"></script>
+    <script src="bichinho-ansiedade.js?v=2"></script>
+    <script src="checkout-link.js"></script>
+</body>
+
+</html>

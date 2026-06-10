@@ -1,0 +1,1467 @@
+@font-face {
+    font-family: "Arlon";
+    src: url("font/arlon-regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Arlon";
+    src: url("font/arlon-bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+.anxiety-page {
+    --book-black: #0b0b0b;
+    --book-white: #fff;
+    --book-paper: #f5f5f1;
+    --book-gray: #696969;
+    --book-blue: #91d5ef;
+    --book-shadow: 5px 5px 0 var(--book-black);
+    --book-shadow-small: 3px 3px 0 var(--book-black);
+    --book-container: 1180px;
+    --book-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --book-ease-snap: cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: var(--book-white);
+    color: var(--book-black);
+    font-family: "Inter", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.anxiety-page .container {
+    width: min(100% - 3rem, var(--book-container));
+    max-width: none;
+    margin-inline: auto;
+    padding: 0;
+}
+
+.anxiety-page section {
+    padding: 0;
+    scroll-margin-top: 6rem;
+}
+
+.anxiety-page a {
+    opacity: 1;
+}
+
+.anxiety-page button,
+.anxiety-page nav a,
+.anxiety-page .section-title,
+.anxiety-page .brutal-button,
+.anxiety-page .text-action {
+    font-family: "Arlon", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.anxiety-page ::selection {
+    background: var(--book-blue);
+    color: var(--book-black);
+}
+
+.anxiety-page ::-moz-selection {
+    background: var(--book-blue);
+    color: var(--book-black);
+}
+
+.anxiety-page :focus-visible {
+    outline: 3px solid var(--book-black);
+    outline-offset: 4px;
+}
+
+.anxiety-page .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.anxiety-page .hidden {
+    display: none !important;
+}
+
+/* Header */
+.anxiety-page .site-header {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 100;
+    padding: 1.1rem 0;
+    border-bottom: 2px solid transparent;
+    background: rgba(255, 255, 255, 0.94);
+    transition:
+        padding 240ms var(--book-ease-out),
+        border-color 240ms ease,
+        background-color 240ms ease;
+}
+
+.anxiety-page .site-header.scrolled {
+    padding: 0.7rem 0;
+    border-bottom-color: var(--book-black);
+    background: var(--book-white);
+    box-shadow: none;
+}
+
+.anxiety-page .header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.anxiety-page .logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.7rem;
+    min-width: max-content;
+    transition: transform 300ms var(--book-ease-snap);
+}
+
+.anxiety-page .logo:hover {
+    transform: rotate(-1deg);
+}
+
+.anxiety-page .logo-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    object-fit: contain;
+    transition: transform 350ms var(--book-ease-snap);
+}
+
+.anxiety-page .logo:hover .logo-icon {
+    transform: rotate(-8deg) scale(1.08);
+}
+
+.anxiety-page .logo-text {
+    color: var(--book-black);
+    font-size: 1.3rem;
+    letter-spacing: -0.04em;
+}
+
+.anxiety-page nav ul {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+}
+
+.anxiety-page nav ul li a {
+    display: inline-flex;
+    min-height: 2.55rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.48rem 0.82rem;
+    border: 2px solid var(--book-black);
+    background: var(--book-white);
+    color: var(--book-black);
+    font-size: 0.88rem;
+    line-height: 1;
+    box-shadow: var(--book-shadow-small);
+    transition:
+        transform 180ms var(--book-ease-out),
+        box-shadow 180ms var(--book-ease-out),
+        color 180ms ease,
+        background-color 180ms ease;
+}
+
+.anxiety-page nav ul li a::after {
+    display: none;
+}
+
+.anxiety-page nav ul li a:hover,
+.anxiety-page nav ul li a[aria-current="true"] {
+    transform: translate(3px, 3px);
+    background: var(--book-black);
+    color: var(--book-white);
+    box-shadow: 0 0 0 var(--book-black);
+}
+
+.anxiety-page .cart-icon-li {
+    margin-left: 0.1rem;
+}
+
+.anxiety-page .cart-icon-link {
+    position: relative;
+    padding: 0.42rem 0.65rem;
+}
+
+.anxiety-page .cart-icon-link svg {
+    width: 1.15rem;
+    height: 1.15rem;
+}
+
+.anxiety-page .cart-count {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    display: none;
+    min-width: 1.3rem;
+    height: 1.3rem;
+    place-items: center;
+    padding-inline: 0.2rem;
+    border: 2px solid var(--book-black);
+    border-radius: 0;
+    background: var(--book-black);
+    color: var(--book-white);
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.anxiety-page .cart-count.visible {
+    display: grid;
+}
+
+/* Shared controls */
+.anxiety-page .eyebrow {
+    margin-bottom: 1.4rem;
+    color: var(--book-gray);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.anxiety-page .section-title {
+    display: inline-block;
+    margin: 0 0 1.6rem;
+    padding: 0.42rem 0.72rem;
+    border: 2px solid var(--book-black);
+    background: var(--book-white);
+    color: var(--book-black);
+    font-size: 0.88rem;
+    letter-spacing: 0;
+    line-height: 1;
+    box-shadow: var(--book-shadow-small);
+}
+
+.anxiety-page .section-title::after {
+    display: none;
+}
+
+.anxiety-page .section-title-dark {
+    border-color: var(--book-white);
+    background: var(--book-black);
+    color: var(--book-white);
+    box-shadow: 3px 3px 0 var(--book-white);
+}
+
+.anxiety-page .brutal-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.25rem;
+    padding: 0.85rem 1.15rem;
+    border: 2px solid var(--book-black);
+    border-radius: 0;
+    background: var(--book-white);
+    color: var(--book-black);
+    font-size: 1rem;
+    line-height: 1;
+    box-shadow: var(--book-shadow);
+    cursor: pointer;
+    transition:
+        transform 180ms var(--book-ease-out),
+        box-shadow 180ms var(--book-ease-out),
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.anxiety-page .brutal-button:hover {
+    transform: translate(5px, 5px);
+    background: var(--book-black);
+    color: var(--book-white);
+    box-shadow: 0 0 0 var(--book-black);
+}
+
+.anxiety-page .brutal-button span,
+.anxiety-page .text-action span {
+    transition: transform 300ms var(--book-ease-snap);
+}
+
+.anxiety-page .brutal-button:hover span {
+    transform: translateY(3px);
+}
+
+.anxiety-page .brutal-button-dark {
+    border-color: var(--book-white);
+    background: var(--book-white);
+    color: var(--book-black);
+    box-shadow: 5px 5px 0 var(--book-blue);
+}
+
+.anxiety-page .brutal-button-dark:hover {
+    border-color: var(--book-blue);
+    background: var(--book-blue);
+    color: var(--book-black);
+    box-shadow: 0 0 0 var(--book-blue);
+}
+
+/* Hero */
+.anxiety-page .book-hero {
+    position: relative;
+    padding-top: 6.5rem;
+    border-bottom: 2px solid var(--book-black);
+    overflow: hidden;
+    min-height: min(850px, calc(100vh - 6.5rem));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--book-paper);
+}
+
+.anxiety-page .hero-bg-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 5.2rem;
+    z-index: 1;
+}
+
+.anxiety-page .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 20% center;
+}
+
+.anxiety-page .book-hero-content {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-block: clamp(4rem, 8vw, 7rem);
+    width: 100%;
+}
+
+.anxiety-page .hero-purchase-box {
+    width: 100%;
+    max-width: 460px;
+    background: var(--book-white);
+    border: 2px solid var(--book-black);
+    box-shadow: 8px 8px 0 var(--book-black);
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.1rem;
+    margin-right: 2rem;
+}
+
+.anxiety-page .hero-purchase-box h1 {
+    margin: 0;
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.05em;
+}
+
+.anxiety-page .hero-purchase-box h1 span {
+    display: block;
+}
+
+.anxiety-page .hero-purchase-box mark {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    margin-top: 0.08em;
+    padding: 0 0.08em 0.04em;
+    color: var(--book-white);
+    background: transparent;
+    transform: rotate(0);
+    transform-origin: center;
+    transition: transform 220ms var(--book-ease-snap);
+}
+
+.anxiety-page .hero-purchase-box mark:hover {
+    transform: rotate(-1.1deg);
+}
+
+.anxiety-page .hero-purchase-box mark::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0.02em -0.02em -0.01em;
+    border: 0.025em solid var(--book-black);
+    background: var(--book-black);
+    transform: rotate(-1deg) scaleX(0);
+    transform-origin: left center;
+    transition: transform 700ms var(--book-ease-out);
+}
+
+.anxiety-page.is-loaded .hero-purchase-box mark::before {
+    transform: rotate(-1deg) scaleX(1);
+    transition-delay: 350ms;
+}
+
+.anxiety-page .hero-purchase-box .book-hero-subtitle {
+    margin: 0;
+    color: var(--book-gray);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.anxiety-page .hero-purchase-box .product-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.45rem;
+    margin-top: 0.2rem;
+    text-transform: none;
+}
+
+.anxiety-page .hero-purchase-box .product-price span {
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.anxiety-page .hero-purchase-box .product-price strong {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    line-height: 1;
+    letter-spacing: -0.05em;
+    color: var(--book-black);
+}
+
+.anxiety-page .hero-purchase-box .payment-note {
+    margin-top: -0.5rem;
+    color: var(--book-gray);
+    font-size: 0.8rem;
+}
+
+.anxiety-page .hero-purchase-box .shipping-calculator {
+    margin-top: 0.2rem;
+    border-top: 1px solid #ddd;
+    padding-top: 1rem;
+}
+
+.anxiety-page .hero-purchase-box .shipping-calculator h3 {
+    margin: 0 0 0.8rem;
+    font-size: 0.9rem;
+}
+
+.anxiety-page .hero-purchase-box .cep-input {
+    border-color: var(--book-black);
+    background: var(--book-white);
+    color: var(--book-black);
+    padding: 0.65rem 0.85rem;
+}
+
+.anxiety-page .hero-purchase-box .cep-input::placeholder {
+    color: #999;
+}
+
+.anxiety-page .hero-purchase-box .cep-input:focus {
+    box-shadow: 3px 3px 0 var(--book-blue);
+}
+
+.anxiety-page .hero-purchase-box .shipping-button {
+    border-color: var(--book-black);
+    background: var(--book-black);
+    color: var(--book-white);
+    padding: 0.65rem 1rem;
+    box-shadow: 3px 3px 0 var(--book-blue);
+}
+
+.anxiety-page .hero-purchase-box .shipping-button:hover:not(:disabled) {
+    transform: translate(3px, 3px);
+    background: var(--book-blue);
+    color: var(--book-black);
+    box-shadow: none;
+}
+
+.anxiety-page .hero-purchase-box .cep-help-link {
+    color: var(--book-gray);
+}
+
+.anxiety-page .hero-purchase-box .cep-help-link:hover {
+    color: var(--book-black);
+}
+
+.anxiety-page .hero-purchase-box .shipping-loading {
+    color: var(--book-gray);
+}
+
+.anxiety-page .hero-purchase-box .shipping-error {
+    border-color: var(--book-black);
+    color: var(--book-black);
+    background: #fff0f0;
+}
+
+.anxiety-page .hero-purchase-box .shipping-results {
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 6px;
+    margin: -6px;
+    margin-top: 0.6rem;
+}
+
+.anxiety-page .hero-purchase-box .shipping-calculator .shipping-option {
+    background: var(--book-paper);
+    color: var(--book-black);
+    border-color: var(--book-black);
+    padding: 0.75rem;
+}
+
+.anxiety-page .hero-purchase-box .shipping-calculator .shipping-option:hover {
+    border-color: var(--book-black);
+    background: var(--book-white);
+}
+
+.anxiety-page .hero-purchase-box .shipping-calculator .shipping-option.selected {
+    border-color: var(--book-black);
+    background: var(--book-black);
+    color: var(--book-white);
+}
+
+.anxiety-page .hero-purchase-box .shipping-calculator .shipping-option.selected .shipping-option-company,
+.anxiety-page .hero-purchase-box .shipping-calculator .shipping-option.selected .shipping-option-time {
+    color: #ccc;
+}
+
+.anxiety-page .hero-purchase-box .product-actions {
+    margin-top: 0.5rem;
+}
+
+.anxiety-page .hero-purchase-box .product-actions .brutal-button-dark {
+    border-color: var(--book-black);
+    background: var(--book-black);
+    color: var(--book-white);
+    box-shadow: 4px 4px 0 var(--book-blue);
+}
+
+.anxiety-page .hero-purchase-box .product-actions .brutal-button-dark:hover:not(:disabled) {
+    border-color: var(--book-blue);
+    background: var(--book-blue);
+    color: var(--book-black);
+    box-shadow: none;
+}
+
+.anxiety-page .hero-purchase-box .product-actions .brutal-button-dark:disabled {
+    border-color: #ccc;
+    background: #eee;
+    color: #aaa;
+    box-shadow: none;
+}
+
+.anxiety-page .gallery-item {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid var(--book-black);
+    border-radius: 0;
+    background: var(--book-paper);
+    box-shadow: 9px 9px 0 var(--book-black);
+    cursor: zoom-in;
+    transition:
+        transform 260ms var(--book-ease-out),
+        box-shadow 260ms var(--book-ease-out);
+}
+
+.anxiety-page .gallery-item:hover {
+    transform: translate(9px, 9px);
+    box-shadow: 0 0 0 var(--book-black);
+}
+
+.anxiety-page .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 800ms var(--book-ease-out);
+}
+
+.anxiety-page .gallery-item:hover img {
+    transform: scale(1.025);
+}
+
+.anxiety-page .story-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 3.5rem;
+}
+
+.anxiety-page .book-facts {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    border-top: 2px solid var(--book-black);
+    background: var(--book-black);
+    color: var(--book-white);
+}
+
+.anxiety-page .book-facts div {
+    display: flex;
+    min-height: 5.2rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem clamp(1rem, 3vw, 2.2rem);
+}
+
+.anxiety-page .book-facts div + div {
+    border-left: 2px solid var(--book-white);
+}
+
+.anxiety-page .book-facts span {
+    color: #aaa;
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: 0.74rem;
+    text-transform: lowercase;
+}
+
+.anxiety-page .book-facts strong {
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-align: right;
+}
+
+/* Story */
+.anxiety-page .book-story {
+    padding: clamp(6rem, 12vw, 10rem) 0;
+    background: var(--book-paper);
+    border-bottom: 2px solid var(--book-black);
+}
+
+.anxiety-page .story-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: start;
+}
+
+.anxiety-page .story-heading h2,
+.anxiety-page .gallery-heading h2,
+.anxiety-page .purchase-heading h2 {
+    margin: 0;
+    font-size: clamp(2.5rem, 5vw, 4.8rem);
+    font-weight: 780;
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+}
+
+.anxiety-page .story-copy p {
+    margin-bottom: 1.2rem;
+    color: #3f3f3f;
+    font-size: 1.05rem;
+    line-height: 1.82;
+}
+
+.anxiety-page .story-copy strong {
+    color: var(--book-black);
+}
+
+.anxiety-page .principles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: clamp(4rem, 8vw, 7rem);
+    border: 2px solid var(--book-black);
+    background: var(--book-white);
+    box-shadow: 8px 8px 0 var(--book-black);
+}
+
+.anxiety-page .principle {
+    position: relative;
+    min-height: 240px;
+    padding: clamp(1.5rem, 3vw, 2.2rem);
+    overflow: hidden;
+    outline: none;
+    transition:
+        background-color 220ms ease,
+        color 220ms ease;
+}
+
+.anxiety-page .principle + .principle {
+    border-left: 2px solid var(--book-black);
+}
+
+.anxiety-page .principle > span {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    margin-bottom: 3rem;
+    color: var(--book-gray);
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: 0.75rem;
+    transition: color 220ms ease;
+}
+
+.anxiety-page .principle h3 {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0.7rem;
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+    font-weight: 400;
+    text-transform: lowercase;
+    transition: color 220ms ease;
+}
+
+.anxiety-page .principle p {
+    position: relative;
+    z-index: 1;
+    color: var(--book-gray);
+    font-size: 0.94rem;
+    line-height: 1.65;
+    transition: color 220ms ease;
+}
+
+.anxiety-page .principle-doodle {
+    position: absolute;
+    z-index: 0;
+    top: 0.9rem;
+    right: 1.15rem;
+    width: clamp(4.32rem, 6.3vw, 5.76rem);
+    height: clamp(4.32rem, 6.3vw, 5.76rem);
+    object-fit: contain;
+    filter: invert(1);
+    opacity: 0;
+    pointer-events: none;
+    transform: rotate(7deg) scale(0.72);
+    transform-origin: center;
+    transition:
+        opacity 220ms ease,
+        transform 380ms var(--book-ease-snap);
+}
+
+.anxiety-page .principle:nth-child(2) .principle-doodle {
+    transform: rotate(-8deg) scale(0.72);
+}
+
+.anxiety-page .principle:nth-child(3) .principle-doodle {
+    transform: rotate(5deg) scale(0.72);
+}
+
+.anxiety-page .principle:hover,
+.anxiety-page .principle:focus-visible {
+    background: var(--book-black);
+    color: var(--book-white);
+}
+
+.anxiety-page .principle:hover > span,
+.anxiety-page .principle:hover h3,
+.anxiety-page .principle:hover p,
+.anxiety-page .principle:focus-visible > span,
+.anxiety-page .principle:focus-visible h3,
+.anxiety-page .principle:focus-visible p {
+    color: var(--book-white);
+}
+
+.anxiety-page .principle:hover .principle-doodle,
+.anxiety-page .principle:focus-visible .principle-doodle {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+.anxiety-page .principle:focus-visible {
+    box-shadow: inset 0 0 0 3px var(--book-blue);
+}
+
+/* Gallery */
+.anxiety-page .book-gallery {
+    padding: clamp(6rem, 12vw, 10rem) 0;
+    border-bottom: 0;
+}
+
+.anxiety-page .gallery-heading {
+    display: grid;
+    grid-template-columns: 0.65fr 1.35fr;
+    align-items: end;
+    gap: 3rem;
+    margin-bottom: clamp(3rem, 7vw, 5.5rem);
+}
+
+.anxiety-page .gallery-heading .section-title {
+    justify-self: start;
+}
+
+.anxiety-page .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.anxiety-page .gallery-item {
+    aspect-ratio: 4 / 3;
+}
+
+.anxiety-page .gallery-item-wide {
+    grid-column: 1 / -1;
+    aspect-ratio: 16 / 9;
+}
+
+/* Purchase */
+.anxiety-page .purchase-section {
+    padding: clamp(6rem, 12vw, 10rem) 0;
+    background: var(--book-black);
+    color: var(--book-white);
+}
+
+.anxiety-page .purchase-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: clamp(3rem, 8vw, 7rem);
+    align-items: start;
+}
+
+.anxiety-page .product-price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.55rem;
+    margin-top: 2.2rem;
+    text-transform: none;
+}
+
+.anxiety-page .product-price span {
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: 1.15rem;
+}
+
+.anxiety-page .product-price strong {
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: -0.055em;
+}
+
+.anxiety-page .payment-note {
+    margin-top: 1rem;
+    color: #aaa;
+    font-size: 0.85rem;
+}
+
+.anxiety-page .purchase-panel {
+    border: 2px solid var(--book-white);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.anxiety-page .product-actions {
+    display: block;
+    margin-top: 1.5rem;
+}
+
+.anxiety-page .product-actions .brutal-button {
+    width: 100%;
+}
+
+.anxiety-page .product-actions .brutal-button:disabled {
+    transform: none;
+    border-color: #555;
+    background: #272727;
+    color: #888;
+    box-shadow: none;
+    cursor: not-allowed;
+}
+
+.anxiety-page .shipping-required-note {
+    margin: 0.8rem 0 0;
+    color: #aaa;
+    font-size: 0.78rem;
+}
+
+.anxiety-page .text-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0;
+    border: 0;
+    border-bottom: 1px solid currentColor;
+    background: none;
+    color: var(--book-white);
+    font-size: 0.92rem;
+    cursor: pointer;
+}
+
+.anxiety-page .text-action:hover span {
+    transform: translate(3px, -3px);
+}
+
+.anxiety-page .shipping-calculator {
+    margin-top: 0;
+    scroll-margin-top: 7rem;
+}
+
+.anxiety-page .shipping-calculator h3 {
+    margin: 0 0 1rem;
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: lowercase;
+}
+
+.anxiety-page .shipping-input-group {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.anxiety-page .cep-input {
+    min-width: 0;
+    flex: 1;
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--book-white);
+    border-radius: 0;
+    background: var(--book-black);
+    color: var(--book-white);
+    font: inherit;
+    outline: none;
+}
+
+.anxiety-page .cep-input::placeholder {
+    color: #888;
+}
+
+.anxiety-page .cep-input:focus {
+    box-shadow: 4px 4px 0 var(--book-blue);
+}
+
+.anxiety-page .shipping-button {
+    padding: 0.85rem 1.2rem;
+    border: 2px solid var(--book-white);
+    border-radius: 0;
+    background: var(--book-white);
+    color: var(--book-black);
+    font-size: 0.9rem;
+    box-shadow: 4px 4px 0 var(--book-blue);
+    cursor: pointer;
+    transition:
+        transform 180ms var(--book-ease-out),
+        box-shadow 180ms var(--book-ease-out),
+        background-color 180ms ease;
+}
+
+.anxiety-page .shipping-button:hover:not(:disabled) {
+    transform: translate(4px, 4px);
+    background: var(--book-blue);
+    box-shadow: none;
+}
+
+.anxiety-page .shipping-button:disabled {
+    cursor: wait;
+    opacity: 0.6;
+}
+
+.anxiety-page .cep-help-link {
+    display: inline-block;
+    margin-top: 0.75rem;
+    color: #aaa;
+    font-size: 0.8rem;
+}
+
+.anxiety-page .cep-help-link:hover {
+    color: var(--book-white);
+}
+
+.anxiety-page .shipping-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1.2rem;
+    color: #bbb;
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: 0.85rem;
+}
+
+.anxiety-page .spinner {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #555;
+    border-top-color: var(--book-white);
+    border-radius: 50%;
+    animation: book-spin 700ms linear infinite;
+}
+
+@keyframes book-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.anxiety-page .shipping-error {
+    margin-top: 1rem;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--book-white);
+    color: var(--book-white);
+    font-size: 0.85rem;
+}
+
+.anxiety-page .shipping-results {
+    display: grid;
+    gap: 0.7rem;
+    margin-top: 1.2rem;
+}
+
+.anxiety-page .shipping-calculator .shipping-option {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem;
+    border: 2px solid #555;
+    border-radius: 0;
+    background: #171717;
+    color: var(--book-white);
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+    transition:
+        transform 180ms var(--book-ease-out),
+        border-color 180ms ease,
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.anxiety-page .shipping-calculator .shipping-option:hover {
+    transform: translateX(4px);
+    border-color: var(--book-white);
+}
+
+.anxiety-page .shipping-calculator .shipping-option.selected {
+    border-color: var(--book-white);
+    background: var(--book-white);
+    color: var(--book-black);
+    box-shadow: none;
+}
+
+.anxiety-page .shipping-option-selector {
+    display: grid;
+    width: 2rem;
+    height: 2rem;
+    place-items: center;
+    border: 2px solid currentColor;
+    font-family: "Arlon", Arial, sans-serif;
+    font-size: 0.7rem;
+}
+
+.anxiety-page .shipping-calculator .shipping-option-info,
+.anxiety-page .shipping-calculator .shipping-option-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.anxiety-page .shipping-calculator .shipping-option-details {
+    align-items: flex-end;
+}
+
+.anxiety-page .shipping-calculator .shipping-option-name,
+.anxiety-page .shipping-calculator .shipping-option-price {
+    color: inherit;
+    font-weight: 700;
+}
+
+.anxiety-page .shipping-calculator .shipping-option-price {
+    text-transform: none;
+}
+
+.anxiety-page .shipping-calculator .shipping-option-company,
+.anxiety-page .shipping-calculator .shipping-option-time {
+    color: #aaa;
+    font-size: 0.76rem;
+}
+
+.anxiety-page .shipping-calculator .shipping-option.selected .shipping-option-company,
+.anxiety-page .shipping-calculator .shipping-option.selected .shipping-option-time {
+    color: #555;
+}
+
+/* Reveal */
+.js .anxiety-page .eyebrow,
+.js .anxiety-page .book-hero-copy h1 > *,
+.js .anxiety-page .book-hero-subtitle,
+.js .anxiety-page .book-hero-copy .brutal-button,
+.js .anxiety-page .hero-art {
+    opacity: 0;
+    transform: translateY(24px);
+    transition:
+        opacity 750ms var(--book-ease-out),
+        transform 750ms var(--book-ease-out);
+}
+
+.js .anxiety-page.is-loaded .eyebrow,
+.js .anxiety-page.is-loaded .book-hero-copy h1 > *,
+.js .anxiety-page.is-loaded .book-hero-subtitle,
+.js .anxiety-page.is-loaded .book-hero-copy .brutal-button,
+.js .anxiety-page.is-loaded .hero-art {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.js .anxiety-page.is-loaded .book-hero-copy h1 > span {
+    transition-delay: 80ms;
+}
+
+.js .anxiety-page.is-loaded .book-hero-copy h1 > mark {
+    transition-delay: 150ms;
+}
+
+.js .anxiety-page.is-loaded .book-hero-copy h1 > mark:hover {
+    transform: rotate(-1.1deg);
+    transition-delay: 0ms;
+    transition-duration: 220ms;
+    transition-timing-function: var(--book-ease-snap);
+}
+
+.js .anxiety-page.is-loaded .book-hero-subtitle {
+    transition-delay: 230ms;
+}
+
+.js .anxiety-page.is-loaded .book-hero-copy .brutal-button {
+    transition-delay: 300ms;
+}
+
+.js .anxiety-page.is-loaded .hero-art {
+    transition-delay: 170ms;
+}
+
+.js .anxiety-page .reveal {
+    opacity: 0;
+    filter: none;
+    transform: translateY(32px);
+    transition:
+        opacity 700ms var(--book-ease-out),
+        transform 700ms var(--book-ease-out);
+    transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js .anxiety-page .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.js .anxiety-page .principle.reveal {
+    transition:
+        opacity 700ms var(--book-ease-out),
+        transform 700ms var(--book-ease-out),
+        background-color 220ms ease,
+        color 220ms ease;
+}
+
+.js .anxiety-page .principle.reveal.is-visible {
+    transition-delay: 0ms;
+}
+
+/* Lightbox */
+.anxiety-page .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1100;
+    display: grid;
+    place-items: center;
+    padding: 4rem;
+    background: rgba(11, 11, 11, 0.96);
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 250ms ease,
+        visibility 250ms ease;
+}
+
+.anxiety-page .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.anxiety-page .lightbox-image {
+    max-width: min(1100px, 86vw);
+    max-height: 84vh;
+    object-fit: contain;
+    border: 2px solid var(--book-white);
+    background: var(--book-white);
+    transform: scale(0.96);
+    transition: transform 350ms var(--book-ease-out);
+}
+
+.anxiety-page .lightbox.active .lightbox-image {
+    transform: scale(1);
+}
+
+.anxiety-page .lightbox-close,
+.anxiety-page .lightbox-nav {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    border: 2px solid var(--book-white);
+    border-radius: 0;
+    background: var(--book-black);
+    color: var(--book-white);
+    box-shadow: 3px 3px 0 var(--book-white);
+    cursor: pointer;
+    transition:
+        transform 180ms var(--book-ease-out),
+        box-shadow 180ms var(--book-ease-out),
+        color 180ms ease,
+        background-color 180ms ease;
+}
+
+.anxiety-page .lightbox-close:hover,
+.anxiety-page .lightbox-nav:hover {
+    transform: translate(3px, 3px);
+    background: var(--book-white);
+    color: var(--book-black);
+    box-shadow: none;
+}
+
+.anxiety-page .lightbox-close {
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+}
+
+.anxiety-page .lightbox-prev {
+    top: 50%;
+    left: 1.5rem;
+}
+
+.anxiety-page .lightbox-next {
+    top: 50%;
+    right: 1.5rem;
+}
+
+/* Footer and cart */
+.anxiety-page .site-footer {
+    margin: 0;
+    padding: 2.2rem 0;
+    border-top: 0;
+    background: var(--book-black);
+    color: var(--book-white);
+    font-size: 0.88rem;
+}
+
+.anxiety-page .footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.anxiety-page .site-footer a {
+    font-family: "Arlon", Arial, sans-serif;
+    text-transform: lowercase;
+}
+
+.anxiety-page .cart-sidebar {
+    font-family: "Inter", Arial, sans-serif;
+}
+
+.anxiety-page .cart-sidebar button,
+.anxiety-page .cart-sidebar .checkout-btn {
+    font-family: "Arlon", Arial, sans-serif;
+    text-transform: lowercase;
+}
+
+@media (max-width: 900px) {
+    .anxiety-page .book-hero {
+        min-height: auto;
+    }
+
+    .anxiety-page .hero-bg-wrapper {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+        border-bottom: 2px solid var(--book-black);
+    }
+
+    .anxiety-page .book-hero-content {
+        justify-content: center;
+        padding-inline: 1rem;
+    }
+
+    .anxiety-page .hero-purchase-box {
+        max-width: 100%;
+        margin-right: 0;
+    }
+
+    .anxiety-page .story-grid,
+    .anxiety-page .purchase-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .anxiety-page .container {
+        width: min(100% - 2rem, var(--book-container));
+    }
+
+    .anxiety-page .site-header {
+        padding: 0.75rem 0;
+    }
+
+    .anxiety-page .header-content {
+        gap: 0.6rem;
+    }
+
+    .anxiety-page .logo-text {
+        display: none;
+    }
+
+    .anxiety-page .logo-icon {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+
+    .anxiety-page nav ul {
+        gap: 0.42rem;
+    }
+
+    .anxiety-page nav ul li a {
+        min-height: 2.35rem;
+        padding: 0.42rem 0.55rem;
+        font-size: 0.74rem;
+        box-shadow: 2px 2px 0 var(--book-black);
+    }
+
+    .anxiety-page nav ul li:nth-child(2) {
+        display: none;
+    }
+
+    .anxiety-page .book-hero {
+        padding-top: 5rem;
+    }
+
+    .anxiety-page .book-hero-content {
+        padding-block: 2.5rem 2.5rem;
+    }
+
+    .anxiety-page .hero-purchase-box h1 {
+        font-size: clamp(2.2rem, 12vw, 3.2rem);
+    }
+
+    .anxiety-page .book-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .anxiety-page .book-facts div {
+        min-height: 4.2rem;
+    }
+
+    .anxiety-page .book-facts div + div {
+        border-top: 2px solid var(--book-white);
+        border-left: 0;
+    }
+
+    .anxiety-page .principles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .anxiety-page .principle {
+        min-height: 0;
+    }
+
+    .anxiety-page .principle + .principle {
+        border-top: 2px solid var(--book-black);
+        border-left: 0;
+    }
+
+    .anxiety-page .principle > span {
+        margin-bottom: 2rem;
+    }
+
+    .anxiety-page .gallery-heading {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .anxiety-page .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .anxiety-page .gallery-item-wide {
+        grid-column: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .anxiety-page .product-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .anxiety-page .text-action {
+        align-self: flex-start;
+    }
+
+    .anxiety-page .shipping-input-group {
+        flex-direction: column;
+    }
+
+    .anxiety-page .shipping-button {
+        width: 100%;
+    }
+
+    .anxiety-page .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+
+    .anxiety-page .lightbox {
+        padding: 1rem;
+    }
+
+    .anxiety-page .lightbox-image {
+        max-width: 96vw;
+        max-height: 75vh;
+    }
+
+    .anxiety-page .lightbox-close {
+        top: 0.75rem;
+        right: 0.75rem;
+    }
+
+    .anxiety-page .lightbox-prev {
+        bottom: 1rem;
+        left: calc(50% - 3.8rem);
+        top: auto;
+    }
+
+    .anxiety-page .lightbox-next {
+        right: calc(50% - 3.8rem);
+        bottom: 1rem;
+        top: auto;
+    }
+}
+
+@media (max-width: 390px) {
+    .anxiety-page nav ul li a {
+        padding-inline: 0.45rem;
+        font-size: 0.7rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .anxiety-page *,
+    .anxiety-page *::before,
+    .anxiety-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
+    }
+
+    .js .anxiety-page .reveal,
+    .js .anxiety-page .eyebrow,
+    .js .anxiety-page .book-hero-copy h1 > *,
+    .js .anxiety-page .book-hero-subtitle,
+    .js .anxiety-page .book-hero-copy .brutal-button,
+    .js .anxiety-page .hero-art {
+        opacity: 1;
+        transform: none;
+    }
+}
