@@ -40,3 +40,13 @@ gunicorn --chdir server app:app
 
 O dominio deve apontar para esse processo Flask e usar HTTPS. O backend serve
 os arquivos do site, bloqueando `server/`, `documentation/` e arquivos ocultos.
+
+## Vercel
+
+O arquivo `pyproject.toml` da raiz define `server.app:app` como entrypoint.
+Antes do deploy, cadastre todas as variaveis acima em:
+
+`Project Settings > Environment Variables`
+
+Cadastre-as para Production e Preview. O arquivo `server/.env` local nao e
+enviado ao Vercel.
